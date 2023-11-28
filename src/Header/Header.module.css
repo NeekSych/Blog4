@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .companyName {
+    font-size: 18px;
+  }
+  
+  .userSection {
+    gap: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .actionButton {
+    /* border: 1px solid Blue; */
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .userInfo {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .userName {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
