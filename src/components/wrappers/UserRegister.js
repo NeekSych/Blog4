@@ -6,7 +6,7 @@ import { register } from '../../store/reducer';
 import UserForm from '../UserForm';
 
 const UserRegister = ({ authorized, register }) => {
-  if (authorized) return <Redirect to="/profile" />;
+  if (authorized) return <Redirect to="/" />;
 
   return <UserForm.Signup onFinish={register} />;
 };
