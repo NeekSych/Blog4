@@ -3,11 +3,11 @@ import { createAsyncThunk, createSlice, current } from '@reduxjs/toolkit';
 import apiBlog from '../api/apiBlog';
 
 const Api = new apiBlog();
-console.log(Api);
+const savedPage = sessionStorage.getItem('blogPage');
 
 const initialState = {
   posts: [],
-  page: 1,
+  page: savedPage ? parseInt(savedPage, 10) : 1,
   totalPages: 1,
   currentPost: {},
   user: {},
@@ -109,6 +109,7 @@ const blog = createSlice({
 export const { clearPost } = blog.actions;
 
 export const getPosts = createAsyncThunk('blog/getPosts', async (page) => {
+  sessionStorage.setItem('blogPage', page.toString());
   const res = await Api.articles.getList(page);
   if (res.errors) return Promise.reject('Something goes wrong');
   return res;

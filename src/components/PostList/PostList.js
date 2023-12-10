@@ -8,7 +8,6 @@ const PostList = ({ list, page, totalPages, onPageChange }) => {
     <div className={css.PostList}>
       {list}
       <Pagination
-        defaultCurrent={1}
         current={page}
         defaultPageSize={1}
         total={totalPages}

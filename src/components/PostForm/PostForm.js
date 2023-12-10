@@ -10,17 +10,49 @@ const config = {
   title: {
     label: 'Title',
     name: 'title',
-    rules: [{ required: true, message: 'Title is requiered' }, { min: 3 }, { max: 50 }],
+    rules: [
+      { required: true, message: 'Title is requiered' },
+      { max: 50 },
+      {
+        validator(_, value) {
+          if (value.trim().length < 3) {
+            return Promise.reject(new Error('Title must be at least 3 characters long'));
+          }
+          return Promise.resolve();
+        },
+      },
+    ],
   },
   description: {
     label: 'Short description',
     name: 'description',
-    rules: [{ required: true, message: 'Description is requiered' }, { min: 3 }, { max: 300 }],
+    rules: [
+      { required: true, message: 'Description is requiered' },
+      {
+        validator(_, value) {
+          if (value.trim().length < 3) {
+            return Promise.reject(new Error('Title must be at least 3 characters long'));
+          }
+          return Promise.resolve();
+        },
+      },
+      { max: 300 },
+    ],
   },
   content: {
     label: 'Content',
     name: 'body',
-    rules: [{ required: true, message: 'Content is requiered' }, { min: 3 }],
+    rules: [
+      { required: true, message: 'Content is requiered' },
+      {
+        validator(_, value) {
+          if (value.trim().length < 3) {
+            return Promise.reject(new Error('Title must be at least 3 characters long'));
+          }
+          return Promise.resolve();
+        },
+      },
+    ],
   },
   tags: {
     name: 'tagList',
